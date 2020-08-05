@@ -124,28 +124,6 @@ class TwoSums{
     }
 }
 
-/**
- * Optimizes twoSumsWorst. One of the best solutions. Utilizes js Map utility
- * Time complexity is O(n)
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-let twoSumsMapOptimized = function(nums, target){
-    const map = new Map();
-    let ret = []; // return array
-    for(let index = 0; index < nums.length; index++){
-        let diff = target - nums[index];
-        if (map.has(diff)){
-            ret = [index, map.get(diff)];
-            break;
-        }
-
-        map.set(nums[index], index)
-    }
-    return ret
-}
-
 
 module.exports = {
     default: TwoSums
