@@ -1,75 +1,126 @@
-/**
- * Outline (one of) the worst possible solutions
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-let twoSumsWorst = function(nums, target){
-    // basic 0(n^n) time complexity
-    let ret = [];
-    // examine every element against the same array
-    nums.every(function(currentValue,index, array){
-        // map the value to each element of the array
-        const replica = array.map(element => element + currentValue)
-        const indexOfTarget = replica.findIndex((element) => element === target);
-        const foundValues = (indexOfTarget !== -1 ) && (indexOfTarget !== index);
+class TwoSums{
+    /**
+     * Implementations of the two sums algorithm
+     * @param {number[]} nums
+     * @param {number} target
+     */
+    constructor(nums, target){
+        this._nums = nums;
+        this._target = target;
+    }
 
-        if (foundValues){
-            ret = [index, indexOfTarget];
-        } else {
+    /**
+     * @returns {number[]}
+     */
+    get getNums(){
+        return this._nums
+    }
 
-        }
-        return !foundValues; // continue to next element if not found
-    })
+    /**
+     * @param {number[]} nums
+     */
+    set setNums(nums){
+        this._nums = nums
+    }
 
-    return ret
-}
+    /**
+     * @returns {number}
+     */
+    get getTarget() {
+        return this._target;
+    }
 
-/**
- * Optimize twoSumsWorst to remove repetitive array searching
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-let twoSumsBasedImproved = function(nums, target){
-    let stillTryingToFindValues = true;
-    let ret = [];
-    nums.every(function(currentValue, index, array){
-        const diff = target - currentValue;
-        // search from the next index onward
-        for (let i = index + 1; i < array.length; i++){
-            if (array[i] === diff){
-                ret = [index, i];
-                stillTryingToFindValues = false; // no longer trying to find the values
+    /**
+     * @param {number} value
+     */
+    set setTarget(value) {
+        this._target = value;
+    }
+
+    /**
+     * Returns solution in O(n^2). Really trying hard here to get the worst possible solution
+     * @returns {[]}
+     */
+    worst(){
+        let ret = [];
+        // examine every element against the same array
+        this.getNums.every((currentValue,index, array) => {
+            // map the value to each element of the array
+            const replica = array.map(element => element + currentValue)
+            const indexOfTarget = replica.findIndex((element) => element === this.getTarget);
+            const foundValues = (indexOfTarget !== -1 ) && (indexOfTarget !== index);
+
+            if (foundValues){
+                ret = [index, indexOfTarget];
+            } else {
+
+            }
+            return !foundValues; // continue to next element if not found
+        })
+
+        return ret
+    }
+
+    /**
+     * Optimizes the worst algo but still relies on heavy list iteration
+     * @returns {[]}
+     */
+    secondWorst(){
+        let stillTryingToFindValues = true;
+        let ret = [];
+        this.getNums.every((currentValue, index, array)=>{
+            const diff = this.getTarget - currentValue;
+            // search from the next index onward
+            for (let i = index + 1; i < array.length; i++){
+                if (array[i] === diff){
+                    ret = [index, i];
+                    stillTryingToFindValues = false; // no longer trying to find the values
+                }
+            }
+            return stillTryingToFindValues;
+        })
+        return ret
+    }
+
+    /**
+     * One of the better solutions. Relies on object lookup. O(n) time
+     * @return {number[]}
+     */
+    objectOptimized(){
+        /**
+         * @type {{}}
+         */
+        const numsObject = this.getNums.reduce((map,currentValue, currentIndex) => {
+            // create key (number), value (index) pair of nums array
+            map[currentValue] = currentIndex;
+            return map;
+        },{})
+
+        for(let index = 0; index < this.getNums.length; index++){
+            let diff = this.getTarget - this.getNums[index];
+            if (numsObject.hasOwnProperty(diff) && numsObject[diff] !== index){
+                return [index, numsObject[diff]];
             }
         }
-        return stillTryingToFindValues;
-    })
-    return ret
-}
+    }
 
-/**
- * Optimize twoSumsWorst by utilizing js Object built obj. Time complexity is O(n)
- * One of the best solutions
- * @param {number[]} nums
- * @param {number} target
- * @return {number[]}
- */
-let twoSumsObjectOptimized = function(nums, target){
     /**
-     * @type {{}}
+     * One of the better solutions. Relies on map lookup. O(n) time
+     * @return {number[]}
      */
-    const numsObject = nums.reduce((map,currentValue, currentIndex) => {
-        // create key (number), value (index) pair of nums array
-        map[currentValue] = currentIndex;
-        return map;
-    },{})
+    mapOptimized(){
+        const map = new Map();
+        let ret = []; // return array
+        for(let index = 0; index < this.getNums.length; index++){
+            let diff = this.getTarget - this.getNums[index];
+            if (map.has(diff)){
+                ret = [index, map.get(diff)];
+                break;
+            }
 
-    for(let index = 0; index < nums.length; index++){
-        let diff = target - nums[index];
-        if (numsObject.hasOwnProperty(diff) && numsObject[diff] !== index){
-            return [index, numsObject[diff]];
+            map.set(this.getNums[index], index)
         }
+        return ret
     }
 }
 
@@ -97,10 +148,5 @@ let twoSumsMapOptimized = function(nums, target){
 
 
 module.exports = {
-    default: twoSumsObjectOptimized,
-    worst: twoSumsWorst,
-    others: [
-        twoSumsMapOptimized,
-        twoSumsBasedImproved
-    ]
+    default: TwoSums
 }
