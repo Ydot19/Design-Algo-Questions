@@ -2,7 +2,7 @@ class TwoSums{
     /**
      * Implementations of the two sums algorithm
      * @param {number[]} nums
-     * @param {number} target
+     * @param {number|null} target
      */
     constructor(nums, target){
         this._nums = nums;
@@ -10,6 +10,7 @@ class TwoSums{
     }
 
     /**
+     * @class TwoSums
      * @returns {number[]}
      */
     get getNums(){
