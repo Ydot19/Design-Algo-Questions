@@ -1,0 +1,45 @@
+group = 'com.java.leetcode'
+version = '0.0.1-SNAPSHOT'
+// apply the java-library plugin to add support for Java library
+apply plugin: 'java-library'
+
+repositories {
+    // Use jcenter for resolving your dependencies
+    mavenCentral()
+}
+
+compileTestJava {
+    sourceCompatibility = 11
+    targetCompatibility = 11
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['core']
+        }
+    }
+
+    test {
+        java {
+            srcDirs = ['tests']
+        }
+    }
+}
+
+ext.junitPlatformVersion    = '1.6.2'
+ext.junitJupiterVersion     = '5.6.2'
+ext.hamcrestVersion         = '2.2'
+test {
+    useJUnitPlatform{
+        includeEngines 'junit-jupiter'
+    }
+
+    maxHeapSize = '1G'
+}
+
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}", "org.hamcrest:hamcrest:${hamcrestVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
