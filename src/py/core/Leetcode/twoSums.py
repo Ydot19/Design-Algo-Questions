@@ -12,32 +12,33 @@ class TwoSums:
         :return:
         """
         nums_length = len(nums)  # length of array
-        index = 0
+        outer_index = 0
+        ret = []
         for num in nums:
-            if index < nums_length:
+            if outer_index < nums_length:
                 diff = target - num
-                other_index = index + 1
-                for nextNum in nums[other_index:]:  # slice next part of array
+                inner_index = outer_index + 1
+                for nextNum in nums[inner_index:]:  # slice next part of array
                     if nextNum == diff:
-                        return [index, other_index]
+                        ret.extend([outer_index, inner_index])
+                        # return [outer_index, inner_index]
+                        return ret  # break out of inner loop
+                    inner_index += 1
 
-                    other_index += 1
+            outer_index += 1
 
-            index += 1
-
-        return []
+        return ret
 
     @staticmethod
     def optimized(nums: List[int], target: int) -> List[int]:
         dict_nums = {}
-
+        ret = []
         for index, num in enumerate(nums):
             diff = target - num
 
             if diff in dict_nums:
-                return [index, dict_nums[diff]]
-
+                ret.extend([index, dict_nums[diff]])
+                break
             dict_nums[num] = index
 
-
-
+        return ret
