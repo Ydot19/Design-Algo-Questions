@@ -1,10 +1,14 @@
-from core.Leetcode.twoSums import TwoSums
+from core.Leetcode.two_sums import TwoSums
 from hamcrest import assert_that, contains_inanyorder
 import unittest
 
 
 class TwoSumsTest(unittest.TestCase):
     def setUp(self) -> None:
+        """
+        Set up test cases for
+        :returns None
+        """
         self._TestCases = [
             {
                 "nums": [3, 2, 4],
