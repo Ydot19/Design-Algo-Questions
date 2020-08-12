@@ -4,9 +4,13 @@ import unittest
 
 
 class TwoSumsTest(unittest.TestCase):
+    """
+    TwoSums uses the unittest.TestCase module to provide a testsuite to
+    determine if the TwoSums static class methods are functioning as expected
+    """
     def setUp(self) -> None:
         """
-        Set up test cases for
+        Set up test cases for two sums algorithm
         :returns None
         """
         self._TestCases = [
@@ -27,7 +31,15 @@ class TwoSumsTest(unittest.TestCase):
             }
         ]
 
-    def test_bruteforce(self):
+    def test_bruteforce(self) -> AssertionError:
+        """
+        Tests the two_sums.py TwoSums.bruteforce static method. Raises assertion error if test fails
+
+        :returns AssertionError [Test fails] or None [Test passes]
+
+        See - `core.Leetcode.two_sums.TwoSums.bruteforce`
+
+        """
         # Setup - none
         # Execute
         for testcase in self._TestCases:
@@ -36,7 +48,14 @@ class TwoSumsTest(unittest.TestCase):
             expected = testcase["expected"]
             assert_that(actual, contains_inanyorder(*expected))
 
-    def test_optimized(self):
+    def test_optimized(self) -> AssertionError:
+        """
+        Tests the two_sums.py TwoSums.optimized static method. Raises assertion error if test fails
+
+        :returns AssertionError [Test fails] or None [Test passes]
+
+        See - `core.Leetcode.two_sums.TwoSums.optimized`
+        """
         # Setup - none
         # Execute
         for testcase in self._TestCases:
