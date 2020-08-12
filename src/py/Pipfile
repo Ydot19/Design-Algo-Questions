@@ -8,13 +8,14 @@ black = "==19.10b0"
 pytest = "==6.0.1"
 pyhamcrest = "==2.0.2"
 pytest-cov = "==2.10.0"
-pdoc3 = "*"
+pdoc3 = "==0.8.4"
 
 [packages]
 
 [scripts]
 gen-docs = "pdoc --html core test --output-dir docs --force"
 view-docs = "firefox docs/core/index.html"
+unit-tests = "python -m pytest test/"
 
 [requires]
-python_version = "3.8"
+python_version = "3.8.5"
