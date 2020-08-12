@@ -7,9 +7,15 @@ class TwoSums:
         """
         Used to collect two sums algo question by traversing a list twice
         Worst case O(n^2)
+
         :param nums: Array of integers to exam
+
         :param target: The addition of two ints in nums must each too
-        :return: Array index of two ints in nums when added equal the target int
+
+        :return Array index of two ints in nums when added equal the target int
+
+        see - `test.UnitTest_Leetcode.test_two_sums.TwoSumsTest.test_bruteforce`
+
         """
         nums_length = len(nums)  # length of array
         outer_index = 0
@@ -34,9 +40,14 @@ class TwoSums:
         """
         Optimized the list search up for the target solution using
         maps. Time complexity is O(n)
+
         :param nums: Array of integers to exam
+
         :param target: The addition of two ints in nums must each too
-        :return: Array index of two ints in nums when added equal the target int
+
+        :return Array index of two ints in nums when added equal the target int
+
+        see - `test.UnitTest_Leetcode.test_two_sums.TwoSumsTest.test_optimized`
         """
         dict_nums = {}
         ret = []
