@@ -1,4 +1,4 @@
-package UnitTest_LeetCode;
+package UnitTest_LeetCode.Tests;
 
 import UnitTest_LeetCode.DataModels.TwoSumsTestModel;
 import leetcode.TwoSums;

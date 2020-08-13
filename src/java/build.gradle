@@ -2,7 +2,7 @@ group = 'com.java.leetcode'
 version = '0.0.1-SNAPSHOT'
 // apply the java-library plugin to add support for Java library
 apply plugin: 'java-library'
-
+apply plugin: 'java'
 repositories {
     // Use jcenter for resolving your dependencies
     mavenCentral()
@@ -19,7 +19,6 @@ sourceSets {
             srcDirs = ['core']
         }
     }
-
     test {
         java {
             srcDirs = ['tests']
@@ -30,6 +29,7 @@ sourceSets {
 ext.junitPlatformVersion    = '1.6.2'
 ext.junitJupiterVersion     = '5.6.2'
 ext.hamcrestVersion         = '2.2'
+
 test {
     useJUnitPlatform{
         includeEngines 'junit-jupiter'
@@ -42,4 +42,16 @@ test {
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitJupiterVersion}", "org.hamcrest:hamcrest:${hamcrestVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitJupiterVersion}")
+}
+
+task docs_gen(type: Javadoc){
+    classpath += sourceSets.test.compileClasspath
+    source = sourceSets.main.allJava
+    source += sourceSets.test.allJava
+    destinationDir = file("docs/")
+}
+
+task docs_view(type: Exec){
+    workingDir '.'
+    commandLine('firefox', 'docs/index.html')
 }
