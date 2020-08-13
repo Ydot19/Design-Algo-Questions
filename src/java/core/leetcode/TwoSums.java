@@ -5,31 +5,62 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/***
+ * @author Yaadata Abdalhalim
+ *
+ */
 public class TwoSums {
+    /**
+     * Private class field that is used to stored
+     * the array of integer elements
+     */
     private ArrayList<Integer> nums;
+    /***
+     * Private class field that holds the target
+     * that a unique pair of integer must equal to.
+     */
     private int target;
 
+    /**
+     * Initializing the solution class
+     * @param nums Array that uniquely has two elements that add up to a target
+     * @param target Value of two elements in nums adds up to target
+     */
     public TwoSums(ArrayList<Integer> nums, int target){
         this.nums = nums;
         this.target = target;
     }
 
+    /**
+     * Getter method
+     * @return nums - private class filed
+     * @see TwoSums#nums
+     */
     public ArrayList<Integer> getNums() {
         return nums;
     }
 
-    public void setNums(ArrayList<Integer> nums) {
-        this.nums = nums;
-    }
-
+    /**
+     * Getter method
+     * @return target - private class field
+     * @see TwoSums#target
+     */
     public int getTarget() {
         return target;
     }
 
-    public void setTarget(int target) {
-        this.target = target;
-    }
 
+    /**
+     * Solution for Two Sums algorithm.
+     * Solution ~O(n^2).
+     * @return Two element integer array.
+     *
+     * Example:
+     * nums = [3, 5, 9, 6]
+     * target = 9
+     *
+     * returns [0, 1] because [Index 0] + [Index 1] = 3 + 5 = 9
+     */
     public ArrayList<Integer> BruteForce(){
         // Initialize the array
         ArrayList<Integer> ret = new ArrayList<>();
@@ -55,6 +86,18 @@ public class TwoSums {
         return ret;
     }
 
+    /**
+     * Solution for Two Sums algorithm.
+     * Limits the use of arrays and lookups are down via a HashMap
+     * Solution ~O(n).
+     * @return Two element integer array.
+     *
+     * Example:
+     * nums = [3, 5, 9, 6]
+     * target = 9
+     *
+     * returns [0, 1] because [Index 0] + [Index 1] = 3 + 5 = 9
+     */
     public ArrayList<Integer> Optimized(){
         // Initialize the array
         ArrayList<Integer> ret = new ArrayList<>();

@@ -5,8 +5,10 @@
   "main": "main.js",
   "scripts": {
     "test": "jest",
-    "test:cov":"jest --coverage",
-    "test:html": "firefox ./coverage/index.html"
+    "test-cov":"jest --coverage",
+    "test-report": "firefox ./coverage/index.html",
+    "docs-gen": "jsdoc -c jsdoc.config.js",
+    "docs-view": "firefox ./docs/index.html"
   },
   "repository": {
     "type": "git",

@@ -1,8 +1,8 @@
 class TwoSums{
     /**
      * Implementations of the two sums algorithm
-     * @param {number[]} nums
-     * @param {number|null} target
+     * @param nums {number[]} Array of integers where two elements uniquely add up to the target
+     * @param target {number|null} Target value. Only one solution of two elements added in nums equals the target
      */
     constructor(nums, target){
         this._nums = nums;
@@ -10,29 +10,29 @@ class TwoSums{
     }
 
     /**
-     * @class TwoSums
-     * @returns {number[]}
+     *
+     * @returns {number[]} Get the nums array
      */
     get getNums(){
         return this._nums
     }
 
     /**
-     * @param {number[]} nums
+     * @param nums {number[]} Set a new array list
      */
     set setNums(nums){
         this._nums = nums
     }
 
     /**
-     * @returns {number}
+     * @returns {number} Get the target value
      */
     get getTarget() {
         return this._target;
     }
 
     /**
-     * @param {number} value
+     * @param value {number} Set a new target value
      */
     set setTarget(value) {
         this._target = value;
@@ -40,7 +40,8 @@ class TwoSums{
 
     /**
      * Returns solution in O(n^2). Really trying hard here to get the worst possible solution
-     * @returns {[]}
+     * @return {number[]} Array of length 2 (two elements)
+     * @author Yaadata Abdalhalim
      */
     worst(){
         let ret = [];
@@ -64,7 +65,8 @@ class TwoSums{
 
     /**
      * Optimizes the worst algo but still relies on heavy list iteration
-     * @returns {[]}
+     * @return {number[]} Array of length 2 (two elements)
+     * @author Yaadata Abdalhalim
      */
     secondWorst(){
         let stillTryingToFindValues = true;
@@ -85,7 +87,8 @@ class TwoSums{
 
     /**
      * One of the better solutions. Relies on object lookup. O(n) time
-     * @return {number[]}
+     * @return {number[]} Array of length 2 (two elements)
+     * @author Yaadata Abdalhalim
      */
     objectOptimized(){
         /**
@@ -107,7 +110,8 @@ class TwoSums{
 
     /**
      * One of the better solutions. Relies on map lookup. O(n) time
-     * @return {number[]}
+     * @return {number[]} Array of length 2 (two elements)
+     * @author Yaadata Abdalhalim
      */
     mapOptimized(){
         const map = new Map();
