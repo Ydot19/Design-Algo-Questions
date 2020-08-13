@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"leetcode","l":"TwoSums"},{"p":"UnitTest_LeetCode.Tests","l":"TwoSumsTest"},{"p":"UnitTest_LeetCode.DataModels","l":"TwoSumsTestModel"}]
