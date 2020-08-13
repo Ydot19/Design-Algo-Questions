@@ -13,8 +13,8 @@ pdoc3 = "==0.8.4"
 [packages]
 
 [scripts]
-gen-docs = "pdoc --html core test --output-dir docs --force"
-view-docs = "firefox docs/core/index.html"
+docs-view = "pdoc --html core test --output-dir docs --force"
+docs-view = "firefox docs/core/index.html"
 unit-tests = "python -m pytest test/"
 
 [requires]
