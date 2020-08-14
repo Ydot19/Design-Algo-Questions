@@ -4,6 +4,6 @@ Organizing Algorithms Questions and System Design Questions
 
 ## Algorithms
 
-| Name | Solution |
-| :--  | :--      |
-| TwoSums | 
+| Name |
+| --
+| [TwoSums](./algo/TwoSums.md) |
