@@ -1,2 +1,9 @@
 # Design-Algo-Questions
-Organizing Leetcode Questions and System Design Questions
+
+Organizing Algorithms Questions and System Design Questions
+
+## Algorithms
+
+| Name |
+| --
+| [TwoSums](./algo/TwoSums.md) |
