@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"leetcode"},{"l":"support.custom_types"},{"l":"unittest.leetcode.datamodels"},{"l":"unittest.leetcode.tests"}]

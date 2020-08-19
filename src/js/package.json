@@ -6,9 +6,9 @@
   "scripts": {
     "test": "jest",
     "test-cov":"jest --coverage",
-    "test-report": "firefox ./coverage/index.html",
+    "test-view": "firefox ./build/coverage/index.html",
     "docs-gen": "jsdoc -c jsdoc.config.js",
-    "docs-view": "firefox ./docs/index.html"
+    "docs-view": "firefox ./build/docs/index.html"
   },
   "repository": {
     "type": "git",

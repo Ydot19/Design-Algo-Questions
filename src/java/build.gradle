@@ -29,7 +29,7 @@ sourceSets {
 ext.junitPlatformVersion    = '1.6.2'
 ext.junitJupiterVersion     = '5.6.2'
 ext.hamcrestVersion         = '2.2'
-
+ext.reportDirs              = 'build/reports'
 test {
     useJUnitPlatform{
         includeEngines 'junit-jupiter'
@@ -48,12 +48,12 @@ task docs_gen(type: Javadoc){
     classpath += sourceSets.test.compileClasspath
     source = sourceSets.main.allJava
     source += sourceSets.test.allJava
-    destinationDir = file("docs/")
+    destinationDir = file("${reportDirs}/docs/")
 }
 
 task docs_view(type: Exec){
     workingDir '.'
-    commandLine('firefox', 'docs/index.html')
+    commandLine('firefox', "${reportDirs}/docs/index.html")
 }
 
 task test_view(type: Exec){

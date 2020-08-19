@@ -12,7 +12,7 @@ module.exports = {
     collectCoverageFrom: [
         "<rootDir>/core/**/*.js"
     ],
-    coverageDirectory: "coverage",
+    coverageDirectory: "build/coverage",
     watchPathIgnorePatterns: ['/node_modules/', '/dist/', '/.git/'],
     moduleFileExtensions: ['js', 'json'],
     testMatch: ["<rootDir>/test/**/*.test.js"]

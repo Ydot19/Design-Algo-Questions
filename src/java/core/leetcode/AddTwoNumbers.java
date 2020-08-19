@@ -95,7 +95,6 @@ public class AddTwoNumbers {
             if(isHead){
                 isHead = false;
                 ret.val = Character.getNumericValue(character);
-                System.out.println(ret.val);
                 previousNode = ret;
             } else{
                 ListNode current_node = new ListNode(Character.getNumericValue(character));

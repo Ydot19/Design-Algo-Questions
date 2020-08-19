@@ -14,3 +14,8 @@ To run complete the follow
     - Note: Assumes firefox is installed
 - To update the code docs run `gradle -q docs_view` 
     - Note: This generates/creates new code docs
+
+## Code Tests
+
+- Run unit tests `gradle test`
+- View unit test results `gradle -q test_view`

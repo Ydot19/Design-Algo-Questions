@@ -13,3 +13,8 @@ To run complete the follow
     - Note: Assumes firefox is installed
 - To update the code docs run `npm run docs-gen` 
     - Note: This generates/creates new code docs
+
+## Code Tests
+
+- Run unit tests: `npm run test-cov`
+- View unit tests: `npm run test-view`

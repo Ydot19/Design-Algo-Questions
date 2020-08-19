@@ -13,3 +13,8 @@ To run complete the follow
     - Note: Assumes firefox is installed
 - To update the code docs run `pipenv run docs-gen` 
     - Note: This generates/creates new code docs
+    
+## Code Tests
+
+- Run unit tests `pipenv run test-cov`
+- View unit test results `pipenv run test-view`

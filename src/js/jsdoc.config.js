@@ -9,6 +9,6 @@ module.exports = {
         include: ["./core/leetcode/"]
     },
     opts:{
-        destination: "./docs/"
+        destination: "./build/docs/"
     }
 }

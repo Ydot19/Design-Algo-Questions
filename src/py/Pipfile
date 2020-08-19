@@ -13,9 +13,11 @@ pdoc3 = "==0.8.4"
 [packages]
 
 [scripts]
-docs-gen = "pdoc --html core test --output-dir docs --force"
-docs-view = "firefox docs/core/index.html"
-unit-tests = "python -m pytest test/"
+docs-gen = "pdoc --html core test --output-dir build/docs --force"
+docs-view = "firefox build/docs/core/index.html build/docs/test/index.html"
+test = "python -m pytest --cov-report term --cov=core test/"
+test-cov = "python -m pytest --cov-report html:build/test --cov=core test/"
+test-view = "firefox build/test/index.html"
 
 [requires]
 python_version = "3.8.5"
