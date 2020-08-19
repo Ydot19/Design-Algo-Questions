@@ -55,3 +55,8 @@ task docs_view(type: Exec){
     workingDir '.'
     commandLine('firefox', 'docs/index.html')
 }
+
+task test_view(type: Exec){
+    workingDir '.'
+    commandLine('firefox', 'build/reports/tests/test/index.html')
+}

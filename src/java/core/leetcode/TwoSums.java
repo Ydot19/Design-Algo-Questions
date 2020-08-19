@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 /***
+ *
+ * Data Class Model for the AddTwoNumbersTest.java
  * @author Yaadata Abdalhalim
  *
  */
@@ -14,12 +16,12 @@ public class TwoSums {
      * Private class field that is used to stored
      * the array of integer elements
      */
-    private ArrayList<Integer> nums;
+    private final ArrayList<Integer> nums;
     /***
      * Private class field that holds the target
      * that a unique pair of integer must equal to.
      */
-    private int target;
+    private final int target;
 
     /**
      * Initializing the solution class

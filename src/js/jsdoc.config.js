@@ -6,7 +6,7 @@ module.exports = {
         'plugins/summarize'
     ],
     source: {
-        include: ["./core/Leetcode/"]
+        include: ["./core/leetcode/"]
     },
     opts:{
         destination: "./docs/"
