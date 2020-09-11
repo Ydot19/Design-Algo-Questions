@@ -12,6 +12,6 @@
 
 | Language |
 | :---     |
-| [Python](../src/py/core/Leetcode/two_sums.py)|
-| [Javascript](../src/js/core/Leetcode/twoSums.js)
+| [Python](../src/py/core/leetcode/two_sums.py)|
+| [Javascript](../src/js/core/leetcode/twoSums.js)
 | [Java](../src/java/core/leetcode/TwoSums.java) |
