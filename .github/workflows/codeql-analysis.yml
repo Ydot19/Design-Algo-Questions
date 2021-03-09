@@ -22,13 +22,13 @@ on:
 
 jobs:
   analyze:
-    name: Analyze
+    name: Analyze JS/Py
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'java', 'javascript', 'python' ]
+        language: [ 'javascript', 'python' ]
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python' ]
         # Learn more:
         # https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#changing-the-languages-that-are-analyzed
@@ -39,6 +39,7 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '11.0.9' # The JDK version to make available on the path.
+      
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v1
@@ -51,13 +52,14 @@ jobs:
     # ✏️ If the Autobuild fails above, remove it and uncomment the following three lines
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
-
-    - name: Build Java Project
-      uses:  eskatos/gradle-command-action@v1.3.3
+    - if: matrix.language == 'java' 
+      name: Build Java
+      uses: eskatos/gradle-command-action@v1
       with:
         gradle-version: 6.5.1
+        arguments: build # just test build configuration
         build-root-directory: src/java
-        
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
+  
